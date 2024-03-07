@@ -1,0 +1,60 @@
+blueprint:
+  name: 🔔📢 Anunciar mensaje por los altavoces 📢🔔
+  description: "<div>\n <h2> 🔔📢 Anunciar mensaje por los altavoces 📢🔔 </h2>\n <b> Un script que anuncia un mensaje en un reproductor multimedia utilizando texto a voz (Usando el servicio tts.google_translate_say)
+                <br><br><b>Version: 1.0.0</b>
+                <br><br><b>Autor: <a href=https://github.com/cvc90/ target=_blank/>cvc90</a></b>
+                <br><br> Enlaces: \U0001F517
+                <a href=\"https://github.com/cvc90/ha-blueprints/blob/main/Scripts/anunciar-texto-a-voz-en-media-player.yaml\"
+                target=\"_blank\">Github Link</a> | \U0001F4AC <a href=\"https://community.home-assistant.io\"
+                target=\"_blank\">Community Post</a>\n  </div>\n"
+  author: cvc90
+  domain: script
+  homeassistant:  
+   min_version: 2024.3.0
+  input:
+    text_to_speech_engine:
+      selector:
+        entity:
+          domain:
+          - tts
+          multiple: false
+      name: Entidad del mensaje de texto a enviar a los altavoces
+      description: 'Si no existe la entidad tendrás que crearla en "Ayudantes" y luego seleccionar "Texto", una vez creada ya puedes seleccionarla aquí'
+    media_player:
+      selector:
+        entity:
+          domain:
+          - media_player
+          multiple: true
+      name: Media Player
+      description: "Selecciona las entidades donde será reproducido el mensaje de audio"
+    opciones_tts:
+      name: Opciones de configuracion TTS
+      description: "Configuración del codigo de idioma y de la cache"    
+    idioma:
+      name: Codigo de idioma
+      description: "Las dos primeras letras del idioma (Ejemplo: Para el idioma español ES)"
+      default: es
+    cache:
+      name: Cache
+      description: "Activar cache para los mensajes reproducidos"
+      default: true       
+      selector:
+        boolean: {}
+  source_url: https://community.home-assistant.io/t/announce-text-to-speech-on-media-player/699186  
+mode: parallel
+fields:
+  message:
+    selector:
+      text:
+        multiline: true
+    name: Mensaje
+    description: "El mensaje a transmitir en los altavoces"
+    required: true
+sequence:
+- service: tts.google_translate_say
+  data:
+    entity_id: !input media_player
+    message: '{{ message }}'
+    language: !input idioma
+    cache: !input cache
