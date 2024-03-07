@@ -12,6 +12,14 @@ Abra su instancia de Home Assistant y importe el blueprint.
 
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/ha-blueprints/blob/main/Scripts/anunciar-texto-a-voz-en-media-player.yaml)
 
+#### 🔔📢 Anunciar mensaje por los altavoces (Blueprints versión inglesa) 📢🔔
+
+Un script que anuncia un mensaje en un reproductor multimedia utilizando texto a voz (Usando el servicio tts.google_translate_say)
+
+Abra su instancia de Home Assistant y importe el blueprint.
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/ha-blueprints/blob/main/Scripts/announce-message-over-speakers.yaml)
+
 ## 📚 Documentación
 
 - Uso y configuración de la aplicación: [All Documentation](docs/README.md)
