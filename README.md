@@ -1,5 +1,16 @@
 # 🏠 ha-blueprints
+
 This repository contains a collection of Home assistant blueprints I created
+
+## 🌀 Scripts
+
+#### 🔔📢 Announce message over speakers (Spanish blueprints) 📢🔔
+
+This is a SCRIPT Blueprint that announces a message in a media player using text to speech (Using the tts.google_translate_say service)
+
+Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/ha-blueprints/blob/main/Scripts/anunciar-texto-a-voz-en-media-player.yaml)
 
 ## 📚 Documentation
 
