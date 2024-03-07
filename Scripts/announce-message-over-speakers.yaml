@@ -1,0 +1,57 @@
+blueprint:
+  name: "\U0001F514\U0001F4E2 Announce message over speakers \U0001F4E2\U0001F514"
+  description: "<div>\n <h2> \U0001F514\U0001F4E2 Announce message over speakers
+    \U0001F4E2\U0001F514 </h2>\n <b> A script that announces a message in a media player using
+    player using text-to-speech (Using the service tts.google_translate_say)
+    <br><br><b>Version: 1.0.0</b> <br><br><b>Autor: <a href=https://github.com/cvc90/
+    target=_blank/>cvc90</a></b> <br><br> Enlaces: \U0001F517 <a href=\"https://github.com/cvc90/ha-blueprints/blob/main/Scripts/announce-message-over-speakers.yaml\"
+    target=\"_blank\">Github Link</a> | \U0001F4AC <a href=\"https://community.home-assistant.io\"
+    target=\"_blank\">Community Post</a>\n  </div>\n"
+  author: cvc90
+  domain: script
+  homeassistant:
+    min_version: 2024.3.0
+  input:
+    text_to_speech_engine:
+      selector:
+        entity:
+          domain:
+          - tts
+          multiple: false
+      name: Entity of the text message to be sent to the speakers
+      description: If the entity does not exist you will have to create it in "Helpers" and then select "Text", once it is created you can select it here
+    media_player:
+      selector:
+        entity:
+          domain:
+          - media_player
+          multiple: true
+      name: Media Player
+      description: Selects the entities where the audio message will be played back
+    language:
+      name: Language code
+      description: 'The first two letters of the language (Example: For the English language US)'
+      default: es
+    cache:
+      name: Cache
+      description: Enable cache for played messages
+      default: true
+      selector:
+        boolean: {}
+  source_url: https://github.com/cvc90/ha-blueprints/blob/main/Scripts/announce-message-over-speakers.yaml
+mode: parallel
+fields:
+  message:
+    selector:
+      text:
+        multiline: true
+    name: Message
+    description: The message to be transmitted in the speakers
+    required: true
+sequence:
+- service: tts.google_translate_say
+  data:
+    entity_id: !input media_player
+    message: '{{ message }}'
+    language: !input language
+    cache: !input cache
