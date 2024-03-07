@@ -4,7 +4,7 @@ blueprint:
     \U0001F4E2\U0001F514 </h2>\n <b> Un script que anuncia un mensaje en un reproductor multimedia utilizando texto a voz (Usando el servicio tts.google_translate_say)
     <br><br><b>Version: 1.1</b> <br><br><b>Autor: <a href=https://github.com/cvc90/
     target=_blank/>cvc90</a></b> <br><br> Enlaces: \U0001F517 <a href=\"https://github.com/cvc90/ha-blueprints\"
-    target=\"_blank\">Github ha-blueprints</a> | \U0001F517<a href=\"https://github.com/cvc90/ha-blueprints/blob/main/Scripts/announce-message-over-speakers.yaml\"
+    target=\"_blank\">Github ha-blueprints</a> | \U0001F517<a href=\"https://github.com/cvc90/ha-blueprints/blob/main/Scripts/anunciar-mensaje-por-altavoces.yaml\"
     target=\"_blank\">Github Source</a> | \U0001F4AC <a href=\"https://community.home-assistant.io\"
     target=\"_blank\">Community Post</a>\n  </div>\n"
   author: cvc90
@@ -38,7 +38,7 @@ blueprint:
       default: true       
       selector:
         boolean: {}
-  source_url: https://community.home-assistant.io/t/announce-text-to-speech-on-media-player/699186  
+  source_url: https://github.com/cvc90/ha-blueprints/blob/main/Scripts/anunciar-mensaje-por-altavoces.yaml
 mode: parallel
 fields:
   message:
