@@ -28,9 +28,6 @@ blueprint:
           multiple: true
       name: Media Player
       description: "Selecciona las entidades donde será reproducido el mensaje de audio"
-    opciones_tts:
-      name: Opciones de configuracion TTS
-      description: "Configuración del codigo de idioma y de la cache"    
     idioma:
       name: Codigo de idioma
       description: "Las dos primeras letras del idioma (Ejemplo: Para el idioma español ES)"
