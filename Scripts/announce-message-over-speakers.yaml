@@ -32,7 +32,7 @@ blueprint:
     language:
       name: Language code
       description: 'The first two letters of the language (Example: For the English language US)'
-      default: es
+      default: us
     cache:
       name: Cache
       description: Enable cache for played messages
