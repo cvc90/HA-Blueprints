@@ -1,4 +1,4 @@
-# 🏠 ha-blueprints
+# 🏠 HA-Blueprints
 
 Este repositorio contiene una colección blueprints de Home assistant
 
