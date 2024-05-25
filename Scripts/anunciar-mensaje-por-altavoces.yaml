@@ -1,5 +1,5 @@
 blueprint:
-  name: 🔔📢 Anunciar mensaje por los altavoces 📢🔔
+  name: "\U0001F514\U0001F4E2 Anunciar mensaje por los altavoces \U0001F4E2\U0001F514"
   description: "<div>\n <h2> \U0001F514\U0001F4E2 Anunciar mensaje por los altavoces
     \U0001F4E2\U0001F514 </h2>\n <b> Un script que anuncia un mensaje en un reproductor multimedia utilizando texto a voz (Usando el servicio tts.google_translate_say)
     <br><br><b>Version: 1.1</b> <br><br><b>Autor: <a href=https://github.com/cvc90/
