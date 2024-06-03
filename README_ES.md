@@ -2,7 +2,7 @@
 
 Este repositorio contiene una colección blueprints de Home assistant
 
-## 🌀 Scripts
+## 🌀 Blueprints
 
 #### 🔔📢 Anunciar mensaje por los altavoces (Blueprints versión española) 📢🔔
 
