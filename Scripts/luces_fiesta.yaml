@@ -133,7 +133,7 @@ blueprint:
       description: |
         Seleccione cómo deben cambiar las luces
 
-          1. **BRILLO ALEATORIO
+          1. **BRILLO ALEATORIO:**
           Cambia el brillo de forma aleatoria dentro de un rango establecido
           
           2. **BRILLO FIJO:**
