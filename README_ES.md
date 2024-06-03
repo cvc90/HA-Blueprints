@@ -6,19 +6,36 @@ Este repositorio contiene una colección blueprints de Home assistant
 
 #### 🔔📢 Anunciar mensaje por los altavoces (Blueprints versión española) 📢🔔
 
-Un script que anuncia un mensaje en un reproductor multimedia utilizando texto a voz (Usando el servicio tts.google_translate_say)
+Un Blueprint que anuncia un mensaje en un reproductor multimedia utilizando texto a voz (Usando el servicio tts.google_translate_say)
 
 Abra su instancia de Home Assistant y importe el blueprint.
 
-[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/ha-blueprints/blob/main/Scripts/anunciar-mensaje-por-altavoces.yaml)
+[![Abra su instancia de Home Assistant y muestra el cuadro de diálogo de importación de planos con un plano específico rellenado previamente.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/anunciar-mensaje-por-altavoces.yaml)
 
 #### 🔔📢 Anunciar mensaje por los altavoces (Blueprints versión inglesa) 📢🔔
 
-Un script que anuncia un mensaje en un reproductor multimedia utilizando texto a voz (Usando el servicio tts.google_translate_say)
+Un Blueprint que anuncia un mensaje en un reproductor multimedia utilizando texto a voz (Usando el servicio tts.google_translate_say)
 
 Abra su instancia de Home Assistant y importe el blueprint.
 
-[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/ha-blueprints/blob/main/Scripts/announce-message-over-speakers.yaml)
+[![Abra su instancia de Home Assistant y muestra el cuadro de diálogo de importación de planos con un plano específico rellenado previamente.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/announce-message-over-speakers.yaml)
+
+#### 🔔🥳 Party Lights (Blueprints versión española) 🥳🔔
+
+Un Blueprint que aleatoriamente hace un bucle a través de los valores de color y brillo
+
+Abra su instancia de Home Assistant y importe el blueprint.
+
+[![Abra su instancia de Home Assistant y muestra el cuadro de diálogo de importación de planos con un plano específico rellenado previamente.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/luces_fiesta.yaml)
+
+#### 🔔🥳 Party Lights (Blueprints versión inglesa) 🥳🔔
+
+Un Blueprint que aleatoriamente hace un bucle a través de los valores de color y brillo
+
+Abra su instancia de Home Assistant y importe el blueprint.
+
+[![Abra su instancia de Home Assistant y muestra el cuadro de diálogo de importación de planos con un plano específico rellenado previamente.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/party_lights.yaml)
+
 
 ## 📚 Documentación
 
@@ -40,7 +57,7 @@ Abra su instancia de Home Assistant y importe el blueprint.
 
 ## ☕ Apóyame
 
-Apóyame para mejorar ha-blueprints.
+Apóyame para mejorar HA-Blueprints.
 
 Siéntete libre de donar lo que quieras a las siguientes direcciones:
 
