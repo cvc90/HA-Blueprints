@@ -10,7 +10,7 @@ This is a SCRIPT Blueprint that announces a message in a media player using text
 
 Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.
 
-[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/ha-blueprints/blob/main/Scripts/announce-message-over-speakers.yaml)
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/announce-message-over-speakers.yaml)
 
 #### 🔔📢 Announce message over speakers (Spanish blueprints) 📢🔔
 
@@ -18,7 +18,23 @@ This is a SCRIPT Blueprint that announces a message in a media player using text
 
 Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.
 
-[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/ha-blueprints/blob/main/Scripts/anunciar-mensaje-por-altavoces.yaml)
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/anunciar-mensaje-por-altavoces.yaml)
+
+#### 🔔🥳 Party Lights (English blueprints) 🥳🔔
+
+This is a SCRIPT Blueprint that Randomly loop through color and brightness values
+
+Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/party_lights.yaml)
+
+#### 🔔🥳 Party Lights (Spanish blueprints) 🥳🔔
+
+This is a SCRIPT Blueprint that Randomly loop through color and brightness values
+
+Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/luces_fiesta.yaml)
 
 ## 📚 Documentation
 
