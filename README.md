@@ -2,7 +2,7 @@
 
 This repository contains a collection of Home assistant blueprints I created
 
-## 🌀 Scripts
+## 🌀 Blueprints
 
 #### 🔔📢 Announce message over speakers (English blueprints) 📢🔔
 
