@@ -11,7 +11,7 @@ blueprint:
     *Puede crear este input_boolean yendo a Configuración > Dispositivos y servicios > Ayudantes*
     *A continuación, haga clic en «Crear ayudante» y seleccione «Alternar.*
 
-  source_url: https://gist.github.com/Twanne/fe33ab8466f9a4e94b3f8e21f745a377
+  source_url: https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/luces_fiesta.yaml
   domain: automation
   input:
     #Select input_boolean
