@@ -76,7 +76,7 @@ blueprint:
           multiple: false
           sort: false
           custom_value: false
-  source_url: https://gist.github.com/milperks/3a2cce4805735ebcadab701162257139
+  source_url: https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/notificacion_meteorologica.yaml
 variables:
   notify_device: !input notify_device
   weather_entity: !input weather_entity
