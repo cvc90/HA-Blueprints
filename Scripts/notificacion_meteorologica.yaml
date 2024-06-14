@@ -1,0 +1,131 @@
+blueprint:
+  name: " 🔔☀ Notificación de pronóstico del tiempo ☀🔔"
+  description: "Envíe una notificación personalizable del pronóstico del tiempo de hoy y mañana."
+  domain: automation
+  input:
+    weather_entity:
+      name: Entidad meteorológica
+      description: La integración meteorológica que utilizas.
+      selector:
+        entity:
+          filter:
+          - domain:
+            - weather
+          multiple: false
+    notify_device:
+      name: Dispositivo para notificar
+      description: El dispositivo debe ejecutar la aplicación complementaria oficial Home Assistant para recibir notificaciones        
+      selector:
+        device:
+          multiple: true
+          integration: mobile_app
+    time:
+      name: Disparador de tiempo
+      description: El tiempo para activar la automatización y enviar la notificación.
+      selector:
+        time: {}
+    notification_title:
+      name: Título de la notificación (opcional)
+      description: El título de la notificación.
+      default: Pronóstico del tiempo
+    notify_message:
+      name: Notificación del tiempo de hoy
+      description: 'Un ejemplo de cómo se mostrará el clima. Las unidades configuradas
+        en su clima se utilizará la integración.
+
+
+        Condición: Lluvia torrencial
+
+        Temp: 8.4 // 4.0 °C
+
+        Precipitación: 8.6 mm
+
+        Velocidad del viento: 24.1 km/h // Dirección del viento: 273'
+      default: Condición
+      selector:
+        select:
+          mode: list
+          multiple: true
+          options:
+          - label: Condición climática
+            value: condition
+          - label: Temperatura
+            value: temperature
+          - label: Precipitación
+            value: precipitation
+          - label: Viento
+            value: wind
+          sort: false
+          custom_value: false
+    tomorrow_message:
+      name: Notificación del tiempo de mañana
+      description: 'Un ejemplo de cómo se mostrará el clima. Las unidades configuradas
+        en su clima se utilizará la integración.
+
+
+        Mañana: Lluvioso, Temperatura: 13.2 // 11.7 °C, Precipitación: 2.5 mm'
+      default: tomorrow
+      selector:
+        select:
+          mode: dropdown
+          options:
+          - label: Sí, envía información sobre el tiempo de mañana
+            value: tomorrow
+          - label: No, no envíes información sobre el tiempo de mañana
+            value: noTomorrow
+          multiple: false
+          sort: false
+          custom_value: false
+  source_url: https://gist.github.com/milperks/3a2cce4805735ebcadab701162257139
+variables:
+  notify_device: !input notify_device
+  weather_entity: !input weather_entity
+  notification_title: !input notification_title
+  time: !input time
+  device_id: !input notify_device
+  notify_message: !input notify_message
+  tomorrow_message: !input tomorrow_message
+trigger:
+  platform: time
+  at: !input time
+action:
+- service: weather.get_forecasts
+  data:
+    type: daily
+  target:
+    entity_id: !input weather_entity
+  response_variable: daily
+- variables:
+    weather_entity: !input weather_entity
+    forecast: '{{ daily[weather_entity].forecast }}'
+    icon: '{% set cond_now = forecast[0].condition %}{% if cond_now == ''cloudy''
+      %}mdi:clouds{% elif cond_now == ''fog'' %}mdi:weather-fog{% elif cond_now ==
+      ''hail'' %}mdi:weather-hail{% elif cond_now == ''lightning'' %}mdi:weather-lightning{%
+      elif cond_now == ''lightning-rainy'' %}mdi:weather-lightning-rainy{% elif cond_now
+      == ''partlycloudy'' %}mdi:weather-partly-cloudy{% elif cond_now == ''pouring''
+      %}mdi:weather-pouring{% elif cond_now == ''rainy'' %}mdi:weather-rainy{% elif
+      cond_now == ''snowy'' %}mdi:weather-snowy{% elif cond_now == ''snowy-rainy''
+      %}mdi:weather-snowy-rainy{% elif cond_now == ''sunny'' %}mdi:weather-sunny{%
+      elif cond_now == ''windy'' %}mdi:weather-windy{% elif cond_now == ''windy-variant''
+      %}mdi:weather-windy-variant{% elif cond_now == ''exceptional'' %}mdi:cloud-alert{%
+      else %}mdi:sun-thermometer{% endif %}'
+- repeat:
+    for_each: !input notify_device
+    sequence:
+    - service: notify.mobile_app_{{ device_attr(repeat.item, 'name') | slugify }}
+      data:
+        title: '{{ notification_title }}'
+        message: "{% set weather = weather_entity %} {% for message in notify_message
+          %}\n  {% if \"condition\" in message %}Condition: {{ (forecast[0].condition).capitalize()
+          }}{% endif %}{% if \"temperature\" in message %}Temp: {{forecast[0].temperature}}
+          // {{forecast[0].templow}} {{ state_attr(weather,'temperature_unit') }}{%
+          endif %}{% if \"precipitation\" in message %}Precipitation: {{forecast[0].precipitation}}
+          {{ state_attr(weather,'precipitation_unit') }}{% endif %}{% if \"wind\"
+          in message %}Wind Speed: {{forecast[0].wind_speed}} {{ state_attr(weather,'wind_speed_unit')
+          }} // Wind Bearing: {{forecast[0].wind_bearing}}{% endif %}\n{% endfor %}\n{%if
+          tomorrow_message == 'tomorrow' %}Tomorrow: {{ (forecast[1].condition).capitalize()
+          }}, Temp: {{forecast[1].temperature}} // {{forecast[1].templow}} {{ state_attr(weather,'temperature_unit')
+          }}, Precipitation: {{forecast[1].precipitation}} {{ state_attr(weather,'precipitation_unit')
+          }} {%endif%}"
+        data:
+          notification_icon: '{{ icon }}'
