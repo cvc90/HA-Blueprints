@@ -36,6 +36,14 @@ Open your Home Assistant instance and show the blueprint import dialog with a sp
 
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/luces_fiesta.yaml)
 
+#### 🔔☀ Weather forecast notification (Spanish blueprints) 🔔☀
+
+This is a SCRIPT Blueprint that send a customisable notification of today and tomorrow's weather forecast
+
+Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/notificacion_meteorologica.yaml)
+
 ## 📚 Documentation
 
 - App usage and configuration: [All Documentation](docs/README.md)
