@@ -1,5 +1,5 @@
 blueprint:
-  name: " 🔔☀ Notificación de pronóstico del tiempo ☀🔔"
+  name: "🔔☀ Notificación de pronóstico del tiempo ☀🔔"
   description: "Envíe una notificación personalizable del pronóstico del tiempo de hoy y mañana."
   domain: automation
   input:
