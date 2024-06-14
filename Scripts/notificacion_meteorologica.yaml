@@ -1,6 +1,7 @@
 blueprint:
-  name: "🔔☀ Notificación de pronóstico del tiempo ☀🔔"
-  description: "Envíe una notificación personalizable del pronóstico del tiempo de hoy y mañana."
+  name: "🔔☀ Notificación de pronóstico del tiempo 🔔☀"
+  description: Envíe una notificación personalizable del pronóstico del tiempo de
+    hoy y mañana.
   domain: automation
   input:
     weather_entity:
@@ -14,7 +15,8 @@ blueprint:
           multiple: false
     notify_device:
       name: Dispositivo para notificar
-      description: El dispositivo debe ejecutar la aplicación complementaria oficial Home Assistant para recibir notificaciones        
+      description: El dispositivo debe ejecutar la aplicación complementaria oficial
+        Home Assistant para recibir notificaciones
       selector:
         device:
           multiple: true
@@ -34,7 +36,7 @@ blueprint:
         en su clima se utilizará la integración.
 
 
-        Condición: Lluvia torrencial
+        Tiempo: Lluvia torrencial
 
         Temp: 8.4 // 4.0 °C
 
@@ -47,7 +49,7 @@ blueprint:
           mode: list
           multiple: true
           options:
-          - label: Condición climática
+          - label: Tiempo
             value: condition
           - label: Temperatura
             value: temperature
@@ -116,16 +118,16 @@ action:
       data:
         title: '{{ notification_title }}'
         message: "{% set weather = weather_entity %} {% for message in notify_message
-          %}\n  {% if \"condition\" in message %}Condition: {{ (forecast[0].condition).capitalize()
+          %}\n  {% if \"condition\" in message %}Tiempo: {{ (forecast[0].condition).capitalize()
           }}{% endif %}{% if \"temperature\" in message %}Temp: {{forecast[0].temperature}}
           // {{forecast[0].templow}} {{ state_attr(weather,'temperature_unit') }}{%
-          endif %}{% if \"precipitation\" in message %}Precipitation: {{forecast[0].precipitation}}
+          endif %}{% if \"precipitation\" in message %}Precipitación: {{forecast[0].precipitation}}
           {{ state_attr(weather,'precipitation_unit') }}{% endif %}{% if \"wind\"
-          in message %}Wind Speed: {{forecast[0].wind_speed}} {{ state_attr(weather,'wind_speed_unit')
-          }} // Wind Bearing: {{forecast[0].wind_bearing}}{% endif %}\n{% endfor %}\n{%if
-          tomorrow_message == 'tomorrow' %}Tomorrow: {{ (forecast[1].condition).capitalize()
+          in message %}Velocidad del viento: {{forecast[0].wind_speed}} {{ state_attr(weather,'wind_speed_unit')
+          }} // Dirección del viento: {{forecast[0].wind_bearing}}{% endif %}\n{% endfor %}\n{%if
+          tomorrow_message == 'tomorrow' %}Mañana: {{ (forecast[1].condition).capitalize()
           }}, Temp: {{forecast[1].temperature}} // {{forecast[1].templow}} {{ state_attr(weather,'temperature_unit')
-          }}, Precipitation: {{forecast[1].precipitation}} {{ state_attr(weather,'precipitation_unit')
+          }}, Precipitación: {{forecast[1].precipitation}} {{ state_attr(weather,'precipitation_unit')
           }} {%endif%}"
         data:
           notification_icon: '{{ icon }}'
