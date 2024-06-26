@@ -44,7 +44,7 @@ Abra su instancia de Home Assistant y importe el blueprint.
 
 [![Abra su instancia de Home Assistant y muestra el cuadro de diálogo de importación de planos con un plano específico rellenado previamente.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://github.com/cvc90/HA-Blueprints/blob/main/Scripts/notificacion_meteorologica.yaml)
 
-#### 🔔☀ Update notifications (Blueprints versión española) 🔔☀
+####  🔔🗘 Notificaciones de actualización (Blueprints versión española) 🗘🔔
 
 Un Blueprint que envia notificaciones de nuevas actualizaciones y permite las acciones de instalar / omitir / ver changelog
 
