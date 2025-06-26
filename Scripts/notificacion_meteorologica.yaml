@@ -125,36 +125,27 @@ action:
     - service: notify.mobile_app_{{ device_attr(repeat.item, 'name') | slugify }}
       data:
         title: '{{ notification_title }}'
-        message: "{% set weather = weather_entity %}
-          {% set condition_translations = {
-              'clear-night': 'Noche despejada',
-              'cloudy': 'Nublado',
-              'fog': 'Niebla',
-              'hail': 'Granizo',
-              'lightning': 'Relámpagos',
-              'lightning-rainy': 'Relámpagos y lluvia',
-              'partlycloudy': 'Parcialmente nublado',
-              'pouring': 'Lluvia torrencial',
-              'rainy': 'Lluvioso',
-              'snowy': 'Nevando',
-              'snowy-rainy': 'Nieve y lluvia',
-              'sunny': 'Soleado',
-              'windy': 'Ventoso',
-              'windy-variant': 'Ventoso variable',
-              'exceptional': 'Excepcional'
-          } %}
-          {% for message in notify_message %}\n
-          {% if \"condition\" in message %}Tiempo: {{ state_translated(weather_entity) }}{% endif %}
-          {% if \"temperature\" in message %}Temperatura máxima: {{forecast[0].temperature}} {{ state_attr(weather,'temperature_unit') }}
-          \n Temperatura minima: {{forecast[0].templow}} {{ state_attr(weather,'temperature_unit') }}{% endif %}
-          {% if \"humidity\" in message %}Humedad: {{forecast[0].humidity}}% {% endif %}
-          {% if \"precipitation\" in message %}Precipitación: {{forecast[0].precipitation}}
-          {{ state_attr(weather,'precipitation_unit') }}{% endif %}                                                                                 
-          {% if \"wind\" in message %}Velocidad del viento: {{forecast[0].wind_speed}} {{ state_attr(weather,'wind_speed_unit') }}
-          \n Dirección del viento: {{forecast[0].wind_bearing}} º {% endif %}
-          {% endfor %}\n{%if tomorrow_message == 'tomorrow' %}Mañana: {{ condition_translations.get(forecast[1].condition, forecast[1].condition) | capitalize 
-          }}, Temp: {{forecast[1].temperature}} // {{forecast[1].templow}} {{ state_attr(weather,'temperature_unit')
-          }}, Precipitación: {{forecast[1].precipitation}} {{ state_attr(weather,'precipitation_unit')
-          }} {%endif%}"
+        message: "{% set weather = weather_entity %} {% set condition_translations
+          = { 'clear-night': 'Noche despejada', 'cloudy': 'Nublado', 'fog': 'Niebla',
+          'hail': 'Granizo', 'lightning': 'Relámpagos', 'lightning-rainy': 'Relámpagos
+          y lluvia', 'partlycloudy': 'Parcialmente nublado', 'pouring': 'Lluvia torrencial',
+          'rainy': 'Lluvioso', 'snowy': 'Nevando', 'snowy-rainy': 'Nieve y lluvia',
+          'sunny': 'Soleado', 'windy': 'Ventoso', 'windy-variant': 'Ventoso variable',
+          'exceptional': 'Excepcional' } %} {% for message in notify_message %}\n
+          {% if \"condition\" in message %}Tiempo: {{ state_translated(weather_entity)
+          }}{% endif %} {% if \"temperature\" in message %}Temperatura máxima: {{forecast[0].temperature}}
+          {{ state_attr(weather,'temperature_unit') }} \n Temperatura minima: {{forecast[0].templow}}
+          {{ state_attr(weather,'temperature_unit') }}{% endif %} {% if \"humidity\"
+          in message %}Humedad: {{forecast[0].humidity}}% {% endif %} {% if \"precipitation\"
+          in message %}Precipitación: {{forecast[0].precipitation}} {{ state_attr(weather,'precipitation_unit')
+          }}{% endif %} {% if \"wind\" in message %}Velocidad del viento: {{forecast[0].wind_speed}}
+          {{ state_attr(weather,'wind_speed_unit') }} \n Dirección del viento: {{forecast[0].wind_bearing}}
+          º {% endif %} {% endfor %}\n{%if tomorrow_message == 'tomorrow' %}Mañana:
+          {{ condition_translations.get(forecast[1].condition, forecast[1].condition)
+          | capitalize }}, Temp: {{forecast[1].temperature}} // {{forecast[1].templow}}
+          {{ state_attr(weather,'temperature_unit') }}, Humedad: {{forecast[1].humidity}}%,
+          Precipitación: {{forecast[1].precipitation}} {{ state_attr(weather,'precipitation_unit') }},
+          Velocidad del viento: {{forecast[1].wind_speed}} {{ state_attr(weather,'wind_speed_unit') }},
+          Dirección del viento: {{forecast[1].wind_bearing}}º {%endif%}"
         data:
           notification_icon: '{{ icon }}'
