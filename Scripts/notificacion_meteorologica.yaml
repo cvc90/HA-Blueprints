@@ -118,7 +118,7 @@ action:
       data:
         title: '{{ notification_title }}'
         message: "{% set weather = weather_entity %} {% for message in notify_message
-          %}\n  {% if \"condition\" in message %}Tiempo: {{ (forecast[0].condition).capitalize()
+          %}\n  {% if \"condition\" in message %}Tiempo: {{ state_translated(weather_entity)
           }}{% endif %}{% if \"temperature\" in message %}Temp: {{forecast[0].temperature}}
           // {{forecast[0].templow}} {{ state_attr(weather,'temperature_unit') }}{%
           endif %}{% if \"precipitation\" in message %}Precipitación: {{forecast[0].precipitation}}
