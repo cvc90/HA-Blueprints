@@ -117,7 +117,25 @@ action:
     - service: notify.mobile_app_{{ device_attr(repeat.item, 'name') | slugify }}
       data:
         title: '{{ notification_title }}'
-        message: "{% set weather = weather_entity %} {% for message in notify_message
+        message: "{% set weather = weather_entity %}
+          {% set condition_translations = {
+              'clear-night': 'Noche despejada',
+              'cloudy': 'Nublado',
+              'fog': 'Niebla',
+              'hail': 'Granizo',
+              'lightning': 'Relámpagos',
+              'lightning-rainy': 'Relámpagos y lluvia',
+              'partlycloudy': 'Parcialmente nublado',
+              'pouring': 'Lluvia torrencial',
+              'rainy': 'Lluvioso',
+              'snowy': 'Nevando',
+              'snowy-rainy': 'Nieve y lluvia',
+              'sunny': 'Soleado',
+              'windy': 'Ventoso',
+              'windy-variant': 'Ventoso variable',
+              'exceptional': 'Excepcional'
+          } %}                     
+          {% for message in notify_message
           %}\n  {% if \"condition\" in message %}Tiempo: {{ state_translated(weather_entity)
           }}{% endif %}{% if \"temperature\" in message %}Temp: {{forecast[0].temperature}}
           // {{forecast[0].templow}} {{ state_attr(weather,'temperature_unit') }}{%
@@ -125,7 +143,7 @@ action:
           {{ state_attr(weather,'precipitation_unit') }}{% endif %}{% if \"wind\"
           in message %}Velocidad del viento: {{forecast[0].wind_speed}} {{ state_attr(weather,'wind_speed_unit')
           }} // Dirección del viento: {{forecast[0].wind_bearing}}{% endif %}\n{% endfor %}\n{%if
-          tomorrow_message == 'tomorrow' %}Mañana: {{ (forecast[1].condition).capitalize()
+          tomorrow_message == 'tomorrow' %}Mañana: {{ condition_translations.get(forecast[1].condition, forecast[1].condition) | capitalize 
           }}, Temp: {{forecast[1].temperature}} // {{forecast[1].templow}} {{ state_attr(weather,'temperature_unit')
           }}, Precipitación: {{forecast[1].precipitation}} {{ state_attr(weather,'precipitation_unit')
           }} {%endif%}"
